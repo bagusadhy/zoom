@@ -12,18 +12,15 @@
   </div>
 </template>
 <script>
-// import { ZoomMtg } from "zoomus-jssdk";
-// var ZoomMtg = require('@zoomus/websdk').ZoomMtg
+
 import { ZoomMtg } from '@zoomus/websdk';
 
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareWebSDK();
 
 // CDN version default
-// ZoomMtg.setZoomJSLib('https://dmogdx0jrul3u.cloudfront.net/1.3.7/lib', '/av'); 
-ZoomMtg.setZoomJSLib('https://source.zoom.us/1.7.1/lib', '/av');
-// ZoomMtg.preLoadWasm();
-// ZoomMtg.prepareJssdk();
+ZoomMtg.setZoomJSLib('https://source.zoom.us/2.2.0/lib', '/av');
+// ZoomMtg.setZoomJSLib('https://localhost:3000/node_modules/@zoomus/websdk/dist/lib', '/av');
 
 
 
@@ -40,6 +37,7 @@ export default {
     };
   },
   props: {
+    id: String,
     nickname: String,
     meetingId: String
   },
@@ -51,7 +49,7 @@ export default {
       meetingNumber: this.meetingId,
       userName: this.nickname,
       passWord: '8YtdNU',
-      leaveUrl: "https://zoom.us",
+      leaveUrl: "https://localhost:3000",
       role: 1
     };
 
@@ -69,7 +67,7 @@ export default {
 
     // join function
     ZoomMtg.init({
-      leaveUrl: "http://www.zoom.us",
+      leaveUrl: "https://localhost:3000",
       isSupportAV: true,
       success: () => {
         try {
@@ -91,20 +89,6 @@ export default {
                     console.log(res);
                 }
             });
-            // ZoomMtg.join({
-            //     signature: signature,
-            //     apiKey: apiKey,
-            //     meetingNumber: meetingNumber,
-            //     userName: userName,
-            //     passWord: passWord,
-            //     success: (success) => {
-            //         console.log(success);
-            //     },
-            //     error: (error) => {
-            //         console.log(error);
-            //     }
-            // });
-      
         } catch(e){
         
         }

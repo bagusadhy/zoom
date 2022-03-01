@@ -12,8 +12,7 @@
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
     "vue": "^3.2.25",
-    "vue-router": "^4.0.12",
-    "zoomus-jssdk": "^1.7.1"
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
